@@ -46,7 +46,7 @@
 -export([watch/1, watch/2, unwatch/1, add_handler/3, print_events/1]).
 
 %% Application callbacks
--export([start/2, stop/1]).
+-export([start/0, start/2, stop/1]).
 
 %% Supervisor callbacks
 -export([init/1]).
@@ -181,6 +181,8 @@ print_events(Ref) ->
 %%--------------------------------------------------------------------
 %% @private
 %%--------------------------------------------------------------------
+start() ->
+  start([],[]).
 start(_StartType, _StartArg) ->
     supervisor:start_link(?MODULE, []).
 
