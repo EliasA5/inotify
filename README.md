@@ -7,6 +7,26 @@ changes to files and directory in the filesystem.
 * [API Documentation](https://hexdocs.pm/inotify/)
 * [Rebar3 Installation (hex)](https://hex.pm/packages/inotify/)
 
+
+Installation
+-------
+Prerequisite:
+* Erlang installation that includes rebar3.
+
+1. Standalone:
+    1. clone the project.
+    2. run `rebar3 compile` or `rebar3 shell`.
+2. Dependancy:
+    1. add the following to the `rebar.config` of your project:
+    ```erlang
+    {deps, [
+      ..
+      {inotify, {git, "https://github.com/EliasA5/inotify.git"}}
+    ]}.
+    ```
+    2. (optional) add `inotify` to the list of the applications in your *.app.src, which wil run inotify before running your application so you don't have to call inotify:start.
+
+
 Example
 -------
 
@@ -24,7 +44,7 @@ Example
 
 
 For the full example refer to the unit test:
-https://github.com/sheyll/inotify/blob/master/test/inotify_test.erl
+https://github.com/EliasA5/inotify/blob/master/test/inotify_test.erl
 
 
 Release History
